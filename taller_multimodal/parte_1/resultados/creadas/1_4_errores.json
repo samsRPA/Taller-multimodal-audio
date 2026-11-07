@@ -1,0 +1,38 @@
+[
+  {
+    "caso": "mas_imagenes",
+    "descripcion": "Se envían 4 imágenes en un mismo mensaje: comparendo_01.png, comparendo_02.png, comparendo_03_foto.jpg, senal_velocidad_30.png",
+    "modelo": "qwen/qwen3.8-27b",
+    "hubo_error": true,
+    "excepcion": "BadRequestError",
+    "status_code": 400,
+    "cuerpo": {
+      "error": {
+        "message": "Too many images provided.  This model supports up to 3 images",
+        "type": "invalid_request_error"
+      }
+    }
+  },
+  {
+    "caso": "modelo_sin_vision",
+    "descripcion": "Se envía comparendo_01.png al modelo openai/gpt-oss-20b, que no tiene visión",
+    "modelo": "openai/gpt-oss-20b",
+    "hubo_error": true,
+    "excepcion": "BadRequestError",
+    "status_code": 400,
+    "cuerpo": {
+      "error": {
+        "message": "messages[0].content must be a string",
+        "type": "invalid_request_error",
+        "param": "messages[0].content"
+      }
+    }
+  },
+  {
+    "caso": "tipo_mal_declarado",
+    "descripcion": "Se envía comparendo_03_foto.jpg (image/jpeg) declarada como mime_type='application/pdf'",
+    "modelo": "qwen/qwen3.8-27b",
+    "hubo_error": false,
+    "respuesta": "La imagen muestra un **documento impreso: una \"Orden de Comparendo Nacional\"** de la Secretaría de Movilidad de Santiago de Cali (Colombia), apoyado sobre una superficie de madera. La foto está compuesta por una vista general del formulario y varios primeros planos (crops) de sus secciones.\n\nSe trata de un **formato de ejemplo / documento ficticio** (así lo indica la nota al pie: *\"DOCUMENTO FICTICIO elaborado para fines académicos… No corresponde a una persona ni a un trámite real\"*), que simula una multa o comparendo de tránsito. Sus campos visibles son:\n\n1. **Fecha y hora de la infracción:**"
+  }
+]

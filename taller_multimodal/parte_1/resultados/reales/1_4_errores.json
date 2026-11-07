@@ -1,0 +1,38 @@
+[
+  {
+    "caso": "mas_imagenes",
+    "descripcion": "Se envían 4 imágenes en un mismo mensaje: senal_escolar_30_bogota.jpg, senal_30_el_zulia.jpg, senal_20_nevado_ruiz.jpg, senal_pico_y_placa_bogota.jpg",
+    "modelo": "qwen/qwen3.8-27b",
+    "hubo_error": true,
+    "excepcion": "BadRequestError",
+    "status_code": 400,
+    "cuerpo": {
+      "error": {
+        "message": "Too many images provided.  This model supports up to 3 images",
+        "type": "invalid_request_error"
+      }
+    }
+  },
+  {
+    "caso": "modelo_sin_vision",
+    "descripcion": "Se envía comparendo_real_la_dorada.png al modelo openai/gpt-oss-20b, que no tiene visión",
+    "modelo": "openai/gpt-oss-20b",
+    "hubo_error": true,
+    "excepcion": "BadRequestError",
+    "status_code": 400,
+    "cuerpo": {
+      "error": {
+        "message": "messages[0].content must be a string",
+        "type": "invalid_request_error",
+        "param": "messages[0].content"
+      }
+    }
+  },
+  {
+    "caso": "tipo_mal_declarado",
+    "descripcion": "Se envía senal_escolar_30_bogota.jpg (image/jpeg) declarada como mime_type='application/pdf'",
+    "modelo": "qwen/qwen3.8-27b",
+    "hubo_error": false,
+    "respuesta": "La imagen muestra un conjunto de **señales de tráfico en una calle urbana**, fotografiado desde"
+  }
+]

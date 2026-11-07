@@ -1,0 +1,267 @@
+{
+  "conjunto": "reales",
+  "modelo": "qwen/qwen3.8-27b",
+  "prompt": "Eres un sistema de extracción de datos de órdenes de comparendo de tránsito de Colombia.\nLee la imagen y devuelve ÚNICAMENTE un objeto JSON (sin texto adicional y sin bloques de código) con exactamente estas claves:\n- \"numero_comparendo\" (string o null): Número de la orden de comparendo: 20 dígitos, sin espacios.\n- \"fecha_infraccion\" (string (fecha) o null): Fecha de la infracción en formato YYYY-MM-DD.\n- \"hora_infraccion\" (string o null): Hora de la infracción en formato HH:MM (24 horas).\n- \"placa_vehiculo\" (string o null): Placa del vehículo: 3 letras y 3 caracteres (ej. ABC123 o ABC12D), sin espacios.\n- \"tipo_vehiculo\" (string (uno de: automovil, motocicleta, camioneta, bus, camion, otro) o null): Tipo de vehículo marcado con X, en minúsculas y sin tildes.\n- \"codigo_infraccion\" (string o null): Código de la infracción: una letra y dos dígitos, sin punto (ej. C29).\n- \"placa_agente\" (string o null): Número de placa del agente de tránsito, como texto (conserva ceros a la izquierda).\nSi un dato no aparece o no se puede leer, usa null. No inventes valores.",
+  "esquema": {
+    "additionalProperties": false,
+    "description": "Datos mínimos para verificar una orden de comparendo.\n\nTodas las claves son obligatorias, pero pueden valer null si el dato no aparece.",
+    "properties": {
+      "numero_comparendo": {
+        "anyOf": [
+          {
+            "pattern": "^\\d{20}$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Número de la orden de comparendo: 20 dígitos, sin espacios.",
+        "title": "Numero Comparendo"
+      },
+      "fecha_infraccion": {
+        "anyOf": [
+          {
+            "format": "date",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Fecha de la infracción en formato YYYY-MM-DD.",
+        "title": "Fecha Infraccion"
+      },
+      "hora_infraccion": {
+        "anyOf": [
+          {
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Hora de la infracción en formato HH:MM (24 horas).",
+        "title": "Hora Infraccion"
+      },
+      "placa_vehiculo": {
+        "anyOf": [
+          {
+            "pattern": "^[A-Z]{3}\\d{2}[A-Z0-9]$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Placa del vehículo: 3 letras y 3 caracteres (ej. ABC123 o ABC12D), sin espacios.",
+        "title": "Placa Vehiculo"
+      },
+      "tipo_vehiculo": {
+        "anyOf": [
+          {
+            "enum": [
+              "automovil",
+              "motocicleta",
+              "camioneta",
+              "bus",
+              "camion",
+              "otro"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Tipo de vehículo marcado con X, en minúsculas y sin tildes.",
+        "title": "Tipo Vehiculo"
+      },
+      "codigo_infraccion": {
+        "anyOf": [
+          {
+            "pattern": "^[A-I]\\d{2}$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Código de la infracción: una letra y dos dígitos, sin punto (ej. C29).",
+        "title": "Codigo Infraccion"
+      },
+      "placa_agente": {
+        "anyOf": [
+          {
+            "pattern": "^\\d{3,7}$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Número de placa del agente de tránsito, como texto (conserva ceros a la izquierda).",
+        "title": "Placa Agente"
+      }
+    },
+    "required": [
+      "numero_comparendo",
+      "fecha_infraccion",
+      "hora_infraccion",
+      "placa_vehiculo",
+      "tipo_vehiculo",
+      "codigo_infraccion",
+      "placa_agente"
+    ],
+    "title": "Comparendo",
+    "type": "object"
+  },
+  "resultados": [
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "respuesta_cruda": "{\n  \"numero_comparendo\": \"173800000000030918421\",\n  \"fecha_infraccion\": \"2021-04-15\",\n  \"hora_infraccion\": \"17:40\",\n  \"placa_vehiculo\": \"HOX569\",\n  \"tipo_vehiculo\": \"automovil\",\n  \"codigo_infraccion\": \"B23\",\n  \"placa_agente\": \"023\"\n}",
+      "json": {
+        "numero_comparendo": "173800000000030918421",
+        "fecha_infraccion": "2021-04-15",
+        "hora_infraccion": "17:40",
+        "placa_vehiculo": "HOX569",
+        "tipo_vehiculo": "automovil",
+        "codigo_infraccion": "B23",
+        "placa_agente": "023"
+      },
+      "cumple_esquema": false,
+      "problemas_validacion": [
+        "numero_comparendo: String should match pattern '^\\d{20}$' (valor recibido: '173800000000030918421')"
+      ],
+      "aciertos": 2,
+      "total": 7,
+      "segundos": 21.44,
+      "tokens_entrada": 1124,
+      "tokens_salida": 682
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "respuesta_cruda": "{\"numero_comparendo\": null, \"fecha_infraccion\": \"2021-04-09\", \"hora_infraccion\": \"09:25\", \"placa_vehiculo\": \"IGX911\", \"tipo_vehiculo\": null, \"codigo_infraccion\": \"C29\", \"placa_agente\": null}",
+      "json": {
+        "numero_comparendo": null,
+        "fecha_infraccion": "2021-04-09",
+        "hora_infraccion": "09:25",
+        "placa_vehiculo": "IGX911",
+        "tipo_vehiculo": null,
+        "codigo_infraccion": "C29",
+        "placa_agente": null
+      },
+      "cumple_esquema": true,
+      "problemas_validacion": [],
+      "aciertos": 7,
+      "total": 7,
+      "segundos": 55.09,
+      "tokens_entrada": 2148,
+      "tokens_salida": 579
+    }
+  ],
+  "comparacion": [
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "campo": "numero_comparendo",
+      "real": "17380000000030918421",
+      "extraido": "173800000000030918421",
+      "correcto": false
+    },
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "campo": "fecha_infraccion",
+      "real": "2021-04-09",
+      "extraido": "2021-04-15",
+      "correcto": false
+    },
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "campo": "hora_infraccion",
+      "real": "09:20",
+      "extraido": "17:40",
+      "correcto": false
+    },
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "campo": "placa_vehiculo",
+      "real": "IGX911",
+      "extraido": "HOX569",
+      "correcto": false
+    },
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "campo": "tipo_vehiculo",
+      "real": "automovil",
+      "extraido": "automovil",
+      "correcto": true
+    },
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "campo": "codigo_infraccion",
+      "real": "C29",
+      "extraido": "B23",
+      "correcto": false
+    },
+    {
+      "imagen": "comparendo_real_la_dorada.png",
+      "campo": "placa_agente",
+      "real": "023",
+      "extraido": "023",
+      "correcto": true
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "campo": "numero_comparendo",
+      "real": null,
+      "extraido": null,
+      "correcto": true
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "campo": "fecha_infraccion",
+      "real": "2021-04-09",
+      "extraido": "2021-04-09",
+      "correcto": true
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "campo": "hora_infraccion",
+      "real": "09:25",
+      "extraido": "09:25",
+      "correcto": true
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "campo": "placa_vehiculo",
+      "real": "IGX911",
+      "extraido": "IGX911",
+      "correcto": true
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "campo": "tipo_vehiculo",
+      "real": null,
+      "extraido": null,
+      "correcto": true
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "campo": "codigo_infraccion",
+      "real": "C29",
+      "extraido": "C29",
+      "correcto": true
+    },
+    {
+      "imagen": "evidencia_fotomulta_la_dorada.png",
+      "campo": "placa_agente",
+      "real": null,
+      "extraido": null,
+      "correcto": true
+    }
+  ],
+  "aciertos": 9,
+  "total": 14,
+  "porcentaje": 64.3
+}

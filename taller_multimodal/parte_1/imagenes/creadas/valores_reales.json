@@ -1,0 +1,29 @@
+{
+  "comparendo_01.png": {
+    "numero_comparendo": "11001000000045872310",
+    "fecha_infraccion": "2026-10-14",
+    "hora_infraccion": "07:42",
+    "placa_vehiculo": "KTR482",
+    "tipo_vehiculo": "automovil",
+    "codigo_infraccion": "C29",
+    "placa_agente": "087654"
+  },
+  "comparendo_02.png": {
+    "numero_comparendo": "05001000000039917446",
+    "fecha_infraccion": "2026-09-03",
+    "hora_infraccion": "18:15",
+    "placa_vehiculo": "MNL37E",
+    "tipo_vehiculo": "motocicleta",
+    "codigo_infraccion": "C02",
+    "placa_agente": "112093"
+  },
+  "comparendo_03_foto.jpg": {
+    "numero_comparendo": "76001000000051236089",
+    "fecha_infraccion": "2026-08-27",
+    "hora_infraccion": "11:05",
+    "placa_vehiculo": "HJW905",
+    "tipo_vehiculo": "camioneta",
+    "codigo_infraccion": "D02",
+    "placa_agente": "064218"
+  }
+}

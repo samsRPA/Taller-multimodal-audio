@@ -1,0 +1,12 @@
+# Claves y entornos
+.env
+.venv/
+env/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Archivos temporales de Word
+~$*.docx

@@ -1,0 +1,20 @@
+{
+  "comparendo_real_la_dorada.png": {
+    "numero_comparendo": "17380000000030918421",
+    "fecha_infraccion": "2021-04-09",
+    "hora_infraccion": "09:20",
+    "placa_vehiculo": "IGX911",
+    "tipo_vehiculo": "automovil",
+    "codigo_infraccion": "C29",
+    "placa_agente": "023"
+  },
+  "evidencia_fotomulta_la_dorada.png": {
+    "numero_comparendo": null,
+    "fecha_infraccion": "2021-04-09",
+    "hora_infraccion": "09:25",
+    "placa_vehiculo": "IGX911",
+    "tipo_vehiculo": null,
+    "codigo_infraccion": "C29",
+    "placa_agente": null
+  }
+}
