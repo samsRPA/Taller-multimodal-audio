@@ -1,0 +1,26 @@
+[
+  {
+    "archivo": "audio_01.ogg",
+    "hablante": "Samuel",
+    "condicion": "sin ruido",
+    "lo_que_se_dijo": "Buenas, me llegó un comparendo con el código C29 por una fotodetección en Bogotá. ¿Cuántos días hábiles tengo para pagar con el descuento del cincuenta por ciento y qué pasa si no hago el curso pedagógico?"
+  },
+  {
+    "archivo": "audio_02.ogg",
+    "hablante": "Carlos",
+    "condicion": "sin ruido",
+    "lo_que_se_dijo": "Quiero saber si me pueden inmovilizar la motocicleta por no tener el SOAT vigente, y cómo consulto en el SIMIT si tengo una multa pendiente asociada a mi placa."
+  },
+  {
+    "archivo": "audio_03.ogg",
+    "hablante": "Samuel",
+    "condicion": "con ruido",
+    "lo_que_se_dijo": "Estoy en la calle y me pusieron un comparendo por no portar la licencia de conducción. ¿Es una infracción tipo B o tipo C según el artículo ciento treinta y uno del Código Nacional de Tránsito?"
+  },
+  {
+    "archivo": "audio_04.ogg",
+    "hablante": "Carlos",
+    "condicion": "sin ruido",
+    "lo_que_se_dijo": "Si el comparendo es por exceso de velocidad y la cámara no muestra bien la placa, ¿puedo pedir la nulidad y cuántos días tiene la autoridad para notificarme la fotomulta?"
+  }
+]

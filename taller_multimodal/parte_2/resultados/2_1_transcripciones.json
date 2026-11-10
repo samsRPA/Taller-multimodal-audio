@@ -1,0 +1,38 @@
+[
+  {
+    "archivo": "audio_01.ogg",
+    "hablante": "Samuel",
+    "condicion": "sin ruido",
+    "lo_que_se_dijo": "Buenas, me llegó un comparendo con el código C29 por una fotodetección en Bogotá. ¿Cuántos días hábiles tengo para pagar con el descuento del cincuenta por ciento y qué pasa si no hago el curso pedagógico?",
+    "duracion_s": 12.1,
+    "transcripcion": "Buenas, me llegó un comparendo con el código C29 por una fotodetección en Bogotá. ¿Cuántos días hábiles tengo para pagar con el descuento del 50% y qué pasa si no hago el curso pedagógico?",
+    "wer": 0.083
+  },
+  {
+    "archivo": "audio_02.ogg",
+    "hablante": "Carlos",
+    "condicion": "sin ruido",
+    "lo_que_se_dijo": "Quiero saber si me pueden inmovilizar la motocicleta por no tener el SOAT vigente, y cómo consulto en el SIMIT si tengo una multa pendiente asociada a mi placa.",
+    "duracion_s": 14.9,
+    "transcripcion": "quiero saber si me pueden movilizar la moto por no tener el soad vigente y como consulto en el cimit si tengo una multa pendiente asociada a mi placa",
+    "wer": 0.138
+  },
+  {
+    "archivo": "audio_03.ogg",
+    "hablante": "Samuel",
+    "condicion": "con ruido",
+    "lo_que_se_dijo": "Estoy en la calle y me pusieron un comparendo por no portar la licencia de conducción. ¿Es una infracción tipo B o tipo C según el artículo ciento treinta y uno del Código Nacional de Tránsito?",
+    "duracion_s": 11.1,
+    "transcripcion": "Estoy en la calle y me pusieron un comparendo por no portar la licencia de conducción. Es una inflexión tipo B o tipo C, según el artículo 131 del Código Nacional del Tránsito.",
+    "wer": 0.167
+  },
+  {
+    "archivo": "audio_04.ogg",
+    "hablante": "Carlos",
+    "condicion": "sin ruido",
+    "lo_que_se_dijo": "Si el comparendo es por exceso de velocidad y la cámara no muestra bien la placa, ¿puedo pedir la nulidad y cuántos días tiene la autoridad para notificarme la fotomulta?",
+    "duracion_s": 13.2,
+    "transcripcion": "Si me comparendo es por exceso de velocidad, la cámara no muestra bien la placa, ¿puedo pedir la nulidad? ¿Y cuántos días tiene la autoridad para notificarme la foto multa?",
+    "wer": 0.133
+  }
+]
